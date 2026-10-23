@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments | Nova Organization</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .dept-hero {
+            padding: 55px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(120deg, #102a56, #2563eb);
+        }
+
+        .dept-hero p {
+            line-height: 1.7;
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 25px;
+        }
+
+        .dept-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 0;
+            min-height: 300px;
+            padding: 28px;
+            box-sizing: border-box;
+            border: 1px solid #374151;
+            border-radius: 15px;
+            background: #1f2937;
+            color: #f9fafb;
+        }
+
+        .dept-icon {
+            display: grid;
+            place-items: center;
+            width: 65px;
+            height: 65px;
+            margin-bottom: 18px;
+            border-radius: 15px;
+            background: #dbeafe;
+            font-size: 32px;
+        }
+
+        .dept-card h2 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .dept-card p {
+            line-height: 1.8;
+        }
+
+        .dept-card button {
+            margin-top: auto;
+            padding: 13px 20px;
+            border: 0;
+            border-radius: 9px;
+            background: #2563eb;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .dept-card button:hover {
+            background: #1d4ed8;
+        }
+
+        /* Popup */
+        #deptModal[hidden] {
+            display: none !important;
+        }
+
+        #deptModal:not([hidden]) {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .dept-modal-box {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            background: #ffffff;
+            color: #1f2937;
+        }
+
+        .dept-modal-box h2 {
+            padding-right: 35px;
+            margin-bottom: 18px;
+        }
+
+        .dept-modal-box h3 {
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
+
+        .dept-modal-box p,
+        .dept-modal-box li {
+            line-height: 1.8;
+        }
+
+        .dept-modal-box li {
+            margin-bottom: 5px;
+        }
+
+        #deptClose {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            padding: 6px 10px;
+            border: none;
+            background: transparent;
+            color: inherit;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 650px) {
+            .dept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dept-card {
+                min-height: 260px;
+            }
+
+            .dept-modal-box {
+                padding: 24px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Nova Organization</h2>
+
+        <button id="themeToggle" class="theme-toggle"
+                type="button" aria-label="Switch to dark mode"
+                aria-pressed="false">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+            <span id="themeLabel">Dark mode</span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html" aria-current="page">Departments</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="news.html">Announcements</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="dept-hero">
+        <h1>Explore Our Departments</h1>
+        <p>Discover our teams, responsibilities, required skills, and goals.</p>
+    </section>
+
+    <section class="section">
+        <h2>Our Departments</h2>
+        <p>Click a department to explore what the team does.</p>
+
+        <div class="dept-grid">
+
+            <article class="dept-card">
+                <div class="dept-icon">👥</div>
+                <h2>Human Resources</h2>
+                <p>Recruitment, onboarding, employee development, and workplace culture.</p>
+            <button type="button"
+        onclick="showDepartment('hr')"
+        data-tooltip="Learn about HR responsibilities, skills, and goals">
+    Explore Department
+</button>    
+            </article>
+
+            <article class="dept-card">
+                <div class="dept-icon">💻</div>
+                <h2>Technology</h2>
+                <p>Software development, databases, IT support, and digital systems.</p>
+            <button type="button"
+        onclick="showDepartment('technology')"
+        data-tooltip="Discover our technology team and its responsibilities">
+    Explore Department
+</button>    
+            </article>
+
+            <article class="dept-card">
+                <div class="dept-icon">📊</div>
+                <h2>Finance</h2>
+                <p>Budgeting, financial records, expense tracking, and reporting.</p>
+                <button type="button"
+        onclick="showDepartment('finance')"
+        data-tooltip="Learn how our finance team manages budgets and accounts">
+    Explore Department
+</button>
+            </article>
+
+            <article class="dept-card">
+                <div class="dept-icon">📣</div>
+                <h2>Marketing</h2>
+                <p>Marketing campaigns, branding, content creation, and audience engagement.</p>
+                <button type="button"
+        onclick="showDepartment('marketing')"
+        data-tooltip="Discover our marketing strategies and activities">
+    Explore Department
+</button>
+            </article>
+
+        </div>
+    </section>
+</main>
+
+<!-- Department details popup -->
+<div id="deptModal" hidden>
+    <div class="dept-modal-box">
+        <button type="button" id="deptClose">✕</button>
+        <h2 id="deptTitle">Department Details</h2>
+        <div id="deptContent"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> Nova Organization. All rights reserved.</p>
+    <p><a href="index.html">Back to Home</a></p>
+</footer>
+
+<script src="script.js"></script>
+<script src="departments.js"></script>
+
+</body>
+</html>

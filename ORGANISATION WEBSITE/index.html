@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Organization</title>
+    <meta name="description" content="Nova Organization provides consulting, technology, and support services.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        
+<nav class="navbar">
+    <h2 class="logo">Nova Organization</h2>
+
+    <button id="themeToggle" class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+        <span id="themeLabel">Dark mode</span>
+    </button>
+
+    <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="departments.html">Departments</a></li>
+    <li><a href="employees.html">Employees</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="news.html">Announcements</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+    </header>
+
+    <main id="main-content">
+
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <h1>Building a Better Future Together</h1>
+            <p>We help organizations grow through innovation,
+                teamwork, and reliable solutions.</p>
+            <button type="button" id="learnMoreBtn" class="btn">
+                Discover More
+            </button>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section">
+            <h2>About Our Organization</h2>
+            <p>We are committed to delivering quality services
+                and creating a positive impact through our work.</p>
+        </section>
+
+
+        <!-- Services -->
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+
+            <div class="service-container">
+                <article class="service-card">
+                    <h3>Consulting</h3>
+                    <p>We provide guidance to help organizations grow.</p>
+                    <button type="button" class="btn service-action"
+                            data-service="Consulting">
+                        Ask About Consulting
+                    </button>
+                </article>
+
+                <article class="service-card">
+                    <h3>Technology</h3>
+                    <p>We offer modern technology solutions.</p>
+                    <button type="button" class="btn service-action"
+                            data-service="Technology">
+                        Ask About Technology
+                    </button>
+                </article>
+
+                <article class="service-card">
+                    <h3>Support</h3>
+                    <p>We provide reliable support for our clients.</p>
+                    <button type="button" class="btn service-action"
+                            data-service="Support">
+                        Ask About Support
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section contact-section">
+            <h2>Contact Us</h2>
+            <p>Have a question? Get in touch with us.</p>
+
+            <form id="contactForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your name"
+                       autocomplete="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email"
+                       autocomplete="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message"
+                          placeholder="Write your message"
+                          rows="5" required></textarea>
+                          
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn">
+                        Send Message
+                    </button>
+                    <button type="reset" class="reset-btn">
+                        Clear Form
+                    </button>
+                </div>
+
+                <!-- Success message appears here -->
+                <p id="formMessage" role="status"
+                   aria-live="polite"></p>
+            </form>
+        </section>
+
+        
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span>
+            Nova Organization. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top -->
+    <button type="button" id="backToTop"
+            title="Back to top" aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- Load JavaScript once -->
+    <script src="script.js"></script>
+</body>
+</html>

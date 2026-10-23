@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover events at Nova Organization.">
+    <title>Events | Nova Organization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Nova Organization</h2>
+
+        <button id="themeToggle" class="theme-toggle"
+                type="button" aria-label="Switch to dark mode"
+                aria-pressed="false">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+            <span id="themeLabel">Dark mode</span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="events.html" aria-current="page">Events</a></li>
+            <li><a href="news.html">Announcements</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="events-hero">
+        <h1>Events & Activities</h1>
+        <p>Connect, learn, and grow through our organization events.</p>
+        <a href="#eventListings" class="btn">Explore Events</a>
+    </section>
+
+    <section class="section" id="eventListings">
+        <h2>Discover Our Events</h2>
+        <p>Search events or filter them by category.</p>
+
+        <div class="event-filters">
+            <input type="search" id="eventSearch"
+                   placeholder="Search events..."
+                   aria-label="Search events">
+
+            <select id="eventCategory" aria-label="Filter events by category">
+                <option value="all">All Categories</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Social">Social</option>
+            </select>
+        </div>
+
+        <div class="event-listing">
+
+            <article class="event-card"
+                     data-title="Web Development Workshop"
+                     data-category="Workshop"
+                     data-date="November 10, 2026"
+                     data-location="Innovation Hall"
+                     data-description="A hands-on session covering modern HTML, CSS, JavaScript, and responsive web design.">
+                <span class="event-tag">Workshop</span>
+                <h3>Web Development Workshop</h3>
+                <p><strong>Date:</strong> November 10, 2026</p>
+                <p><strong>Location:</strong> Innovation Hall</p>
+                <p>Learn practical skills for building modern websites.</p>
+                <button type="button" class="btn event-details">View Details</button>
+            </article>
+
+            <article class="event-card"
+                     data-title="Team Planning Meeting"
+                     data-category="Meeting"
+                     data-date="November 15, 2026"
+                     data-location="Conference Room A"
+                     data-description="A team session to review project progress, discuss priorities, and plan upcoming work.">
+                <span class="event-tag">Meeting</span>
+                <h3>Team Planning Meeting</h3>
+                <p><strong>Date:</strong> November 15, 2026</p>
+                <p><strong>Location:</strong> Conference Room A</p>
+                <p>Discuss goals, project progress, and future priorities.</p>
+                <button type="button" class="btn event-details">View Details</button>
+            </article>
+
+            <article class="event-card"
+                     data-title="Annual Team Celebration"
+                     data-category="Social"
+                     data-date="November 25, 2026"
+                     data-location="Main Auditorium"
+                     data-description="An organization-wide gathering to celebrate achievements and recognize teamwork.">
+                <span class="event-tag">Social</span>
+                <h3>Annual Team Celebration</h3>
+                <p><strong>Date:</strong> November 25, 2026</p>
+                <p><strong>Location:</strong> Main Auditorium</p>
+                <p>Celebrate team achievements and connect with colleagues.</p>
+                <button type="button" class="btn event-details">View Details</button>
+            </article>
+
+        </div>
+
+        <p id="noEventsMessage" hidden>No matching events found.</p>
+    </section>
+</main>
+
+<!-- Event details modal -->
+<div id="eventModal" class="modal" hidden
+     role="dialog" aria-modal="true"
+     aria-labelledby="eventModalTitle">
+    <div class="modal-content">
+        <button type="button" id="closeEventModal"
+                class="close-modal" aria-label="Close dialog">✕</button>
+        <h2 id="eventModalTitle">Event Details</h2>
+        <div id="eventModalBody"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> Nova Organization. All rights reserved.</p>
+    <p><a href="index.html">Back to Home</a></p>
+</footer>
+
+<script src="script.js"></script>
+<script src="events.js"></script>
+</body>
+</html>

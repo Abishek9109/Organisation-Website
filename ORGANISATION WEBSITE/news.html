@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest news, updates, and announcements from Nova Organization.">
+    <title>News | Nova Organization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Nova Organization</h2>
+
+        <button id="themeToggle" class="theme-toggle"
+                type="button" aria-label="Switch to dark mode"
+                aria-pressed="false">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+            <span id="themeLabel">Dark mode</span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="news.html" aria-current="page">News</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- News hero section -->
+    <section class="news-hero">
+        <div class="news-hero-content">
+            <span class="news-eyebrow">NOVA UPDATES</span>
+            <h1>News & Announcements</h1>
+            <p>
+                Discover the latest updates, achievements, and important
+                announcements from across our organization.
+            </p>
+            <a href="#news-list" class="btn">Explore Latest News</a>
+        </div>
+    </section>
+
+    <!-- News search and filters -->
+    <section class="section" id="news-list">
+        <div class="news-section-heading">
+            <div>
+                <h2>Latest News</h2>
+                <p>Stay informed about what's happening at Nova.</p>
+            </div>
+            <span id="newsCount" class="news-count">6 articles</span>
+        </div>
+
+        <div class="news-filters">
+            <input
+                type="search"
+                id="newsSearch"
+                placeholder="Search news..."
+                aria-label="Search news by title or keyword"
+            >
+
+            <select id="newsCategory" aria-label="Filter news by category">
+                <option value="all">All Categories</option>
+                <option value="Company">Company Updates</option>
+                <option value="Technology">Technology</option>
+                <option value="People">People & Culture</option>
+                <option value="Announcements">Announcements</option>
+            </select>
+        </div>
+
+        <div class="news-grid">
+
+            <article class="news-card"
+                     data-title="Nova expands its technology team"
+                     data-category="Technology"
+                     data-date="October 20, 2026"
+                     data-image="💻"
+                     data-summary="Nova is expanding its technology team to support new digital initiatives."
+                     data-content="Nova Organization is expanding its technology team to support new digital initiatives. The expansion will focus on web development, software engineering, automation, and improving internal digital services. This is a demonstration article for the website.">
+                <div class="news-image news-image-blue">
+                    <span>💻</span>
+                    <span class="news-image-label">Technology</span>
+                </div>
+                <div class="news-card-body">
+                    <p class="news-date">October 20, 2026</p>
+                    <h3>Nova Expands Its Technology Team</h3>
+                    <p>Our technology team is growing to support new digital initiatives and innovative solutions.</p>
+                    <button type="button" class="btn read-news">Read More</button>
+                </div>
+            </article>
+
+            <article class="news-card"
+                     data-title="Employee recognition awards announced"
+                     data-category="People"
+                     data-date="October 15, 2026"
+                     data-image="🏆"
+                     data-summary="Nova celebrates employees who demonstrate teamwork, dedication, and creativity."
+                     data-content="Nova Organization celebrates employees who demonstrate teamwork, dedication, and creativity. The employee recognition initiative highlights contributions across departments and encourages a culture of collaboration and continuous improvement. This is a demonstration article for the website.">
+                <div class="news-image news-image-gold">
+                    <span>🏆</span>
+                    <span class="news-image-label">People & Culture</span>
+                </div>
+                <div class="news-card-body">
+                    <p class="news-date">October 15, 2026</p>
+                    <h3>Employee Recognition Awards Announced</h3>
+                    <p>Celebrating the dedication, creativity, and achievements of our team members.</p>
+                    <button type="button" class="btn read-news">Read More</button>
+                </div>
+            </article>
+
+            <article class="news-card"
+                     data-title="New sustainability initiative launched"
+                     data-category="Company"
+                     data-date="October 10, 2026"
+                     data-image="🌱"
+                     data-summary="Nova introduces a sustainability initiative focused on responsible workplace practices."
+                     data-content="Nova Organization is introducing a sustainability initiative focused on responsible workplace practices, reducing unnecessary waste, and encouraging employees to make environmentally conscious choices. This is a demonstration article for the website.">
+                <div class="news-image news-image-green">
+                    <span>🌱</span>
+                    <span class="news-image-label">Company Updates</span>
+                </div>
+                <div class="news-card-body">
+                    <p class="news-date">October 10, 2026</p>
+                    <h3>New Sustainability Initiative Launched</h3>
+                    <p>A new initiative encourages responsible and environmentally conscious workplace practices.</p>
+                    <button type="button" class="btn read-news">Read More</button>
+                </div>
+            </article>
+
+            <article class="news-card"
+                     data-title="Upcoming employee development workshops"
+                     data-category="Announcements"
+                     data-date="October 5, 2026"
+                     data-image="📚"
+                     data-summary="Professional development workshops will help employees strengthen their skills."
+                     data-content="Nova Organization plans to conduct employee development workshops covering communication, collaboration, problem-solving, and professional growth. Employees can use these sessions to strengthen existing skills and explore new learning opportunities. This is a demonstration article for the website.">
+                <div class="news-image news-image-purple">
+                    <span>📚</span>
+                    <span class="news-image-label">Announcements</span>
+                </div>
+                <div class="news-card-body">
+                    <p class="news-date">October 5, 2026</p>
+                    <h3>Upcoming Employee Development Workshops</h3>
+                    <p>Explore learning opportunities designed to support professional growth.</p>
+                    <button type="button" class="btn read-news">Read More</button>
+                </div>
+            </article>
+
+            <article class="news-card"
+                     data-title="Nova improves internal digital services"
+                     data-category="Technology"
+                     data-date="September 28, 2026"
+                     data-image="🚀"
+                     data-summary="The organization is working to improve the usability of its internal digital services."
+                     data-content="Nova Organization continues to explore improvements to its internal digital services. The goal is to simplify common workflows, make information easier to access, and create a more convenient digital experience for employees. This is a demonstration article for the website.">
+                <div class="news-image news-image-blue">
+                    <span>🚀</span>
+                    <span class="news-image-label">Technology</span>
+                </div>
+                <div class="news-card-body">
+                    <p class="news-date">September 28, 2026</p>
+                    <h3>Nova Improves Internal Digital Services</h3>
+                    <p>Discover how digital improvements can make everyday work more efficient.</p>
+                    <button type="button" class="btn read-news">Read More</button>
+                </div>
+            </article>
+
+            <article class="news-card"
+                     data-title="Community volunteering program announced"
+                     data-category="Company"
+                     data-date="September 20, 2026"
+                     data-image="🤝"
+                     data-summary="Nova introduces a community volunteering program to encourage employee participation."
+                     data-content="Nova Organization is introducing a community volunteering program to encourage employees to contribute their time and skills to community activities. The initiative aims to promote teamwork, social responsibility, and meaningful community engagement. This is a demonstration article for the website.">
+                <div class="news-image news-image-orange">
+                    <span>🤝</span>
+                    <span class="news-image-label">Company Updates</span>
+                </div>
+                <div class="news-card-body">
+                    <p class="news-date">September 20, 2026</p>
+                    <h3>Community Volunteering Program Announced</h3>
+                    <p>Encouraging employees to connect, contribute, and make a positive difference.</p>
+                    <button type="button" class="btn read-news">Read More</button>
+                </div>
+            </article>
+
+        </div>
+
+        <p id="newsEmpty" class="news-empty" hidden>
+            No news articles found. Try another search or category.
+        </p>
+    </section>
+</main>
+
+<!-- News article modal -->
+<div id="newsModal" class="modal" hidden
+     role="dialog" aria-modal="true"
+     aria-labelledby="newsModalTitle">
+    <div class="modal-content news-modal-content">
+        <button type="button" id="closeNewsModal"
+                class="close-modal" aria-label="Close article">✕</button>
+
+        <span id="newsModalCategory" class="news-modal-category"></span>
+        <p id="newsModalDate" class="news-date"></p>
+        <h2 id="newsModalTitle">News Article</h2>
+        <p id="newsModalSummary"></p>
+        <div id="newsModalContent"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> Nova Organization. All rights reserved.</p>
+    <p><a href="index.html">Back to Home</a></p>
+</footer>
+
+<script src="script.js"></script>
+<script src="news.js"></script>
+</body>
+</html>

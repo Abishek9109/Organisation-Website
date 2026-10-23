@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the team at Nova Organization.">
+    <title>Employees | Nova Organization</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Employee page layout */
+        .employees-hero {
+            padding: 65px 20px;
+            text-align: center;
+            background: linear-gradient(120deg, #102a56, #2563eb);
+            color: white;
+        }
+
+        .employees-hero h1 {
+            margin-bottom: 12px;
+        }
+
+        .employee-filters {
+            display: flex;
+            gap: 15px;
+            max-width: 700px;
+            margin: 25px auto 35px;
+        }
+
+        .employee-filters input,
+        .employee-filters select {
+            flex: 1;
+            min-width: 0;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .employee-directory {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .employee-card {
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 5px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .employee-card[hidden] {
+            display: none !important;
+        }
+
+        .employee-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .employee-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .employee-card p {
+            margin: 8px 0 15px;
+            color: #64748b;
+        }
+
+        .employee-department {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 13px;
+        }
+
+        .employee-details {
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Profile popup */
+        #employeeModal[hidden] {
+            display: none !important;
+        }
+
+        #employeeModal:not([hidden]) {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.7);
+            overflow-y: auto;
+        }
+
+        #employeeModal .modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+            padding: 30px;
+            border-radius: 14px;
+            background: white;
+            color: #1e293b;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+        }
+
+        #employeeModalTitle {
+            padding-right: 30px;
+            margin-bottom: 20px;
+        }
+
+        #employeeModalBody p {
+            margin: 14px 0;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        #closeEmployeeModal {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            border: none;
+            background: transparent;
+            color: inherit;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        #closeEmployeeModal:focus-visible,
+        .employee-details:focus-visible {
+            outline: 3px solid #60a5fa;
+            outline-offset: 3px;
+        }
+
+        /* Dark mode */
+        body.dark-mode .employee-card {
+            background: #1f2937;
+            border-color: #374151;
+            color: #f9fafb;
+        }
+
+        body.dark-mode .employee-card p {
+            color: #cbd5e1;
+        }
+
+        body.dark-mode .employee-department {
+            background: #1e3a8a;
+            color: #dbeafe;
+        }
+
+        body.dark-mode .employee-filters input,
+        body.dark-mode .employee-filters select {
+            background: #1f2937;
+            color: white;
+            border-color: #4b5563;
+        }
+
+        body.dark-mode #employeeModal .modal-content {
+            background: #1f2937;
+            color: #f9fafb;
+        }
+
+        @media (max-width: 900px) {
+            .employee-directory {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .employees-hero {
+                padding: 45px 18px;
+            }
+
+            .employee-filters {
+                flex-direction: column;
+            }
+
+            .employee-filters input,
+            .employee-filters select {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .employee-directory {
+                grid-template-columns: 1fr;
+            }
+
+            #employeeModal:not([hidden]) {
+                padding: 12px;
+            }
+
+            #employeeModal .modal-content {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Nova Organization</h2>
+
+        <button id="themeToggle" class="theme-toggle"
+                type="button" aria-label="Switch to dark mode"
+                aria-pressed="false">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+            <span id="themeLabel">Dark mode</span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="employees.html" aria-current="page">Employees</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="news.html">Announcements</a></li>
+            <li><a href="careers.html">Careers</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="employees-hero">
+        <h1>Meet Our Team</h1>
+        <p>Discover the people and teams behind Nova Organization.</p>
+    </section>
+
+    <section class="section">
+        <h2>Employee Directory</h2>
+        <p>Search for an employee or filter by department.</p>
+
+        <div class="employee-filters">
+            <input
+                type="search"
+                id="employeeSearch"
+                placeholder="Search employee name..."
+                aria-label="Search employee name"
+            >
+
+            <select id="departmentFilter" aria-label="Filter by department">
+                <option value="all">All Departments</option>
+                <option value="Technology">Technology</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+        </div>
+
+        <div class="employee-directory">
+
+            <article class="employee-card"
+                data-name="Arun Kumar"
+                data-department="Technology"
+                data-role="Software Developer"
+                data-email="arun@example.com"
+                data-about="Arun works on building and maintaining web applications.">
+
+                <div class="employee-avatar">AK</div>
+                <h3>Arun Kumar</h3>
+                <p>Software Developer</p>
+                <span class="employee-department">Technology</span>
+                <button type="button" class="btn employee-details">
+                    View Profile
+                </button>
+            </article>
+
+            <article class="employee-card"
+                data-name="Priya Sharma"
+                data-department="Human Resources"
+                data-role="HR Executive"
+                data-email="priya@example.com"
+                data-about="Priya supports recruitment, onboarding, and employee engagement.">
+
+                <div class="employee-avatar">PS</div>
+                <h3>Priya Sharma</h3>
+                <p>HR Executive</p>
+                <span class="employee-department">Human Resources</span>
+                <button type="button" class="btn employee-details">
+                    View Profile
+                </button>
+            </article>
+
+            <article class="employee-card"
+                data-name="Rahul Raj"
+                data-department="Finance"
+                data-role="Financial Analyst"
+                data-email="rahul@example.com"
+                data-about="Rahul supports financial reporting, analysis, and budgeting.">
+
+                <div class="employee-avatar">RR</div>
+                <h3>Rahul Raj</h3>
+                <p>Financial Analyst</p>
+                <span class="employee-department">Finance</span>
+                <button type="button" class="btn employee-details">
+                    View Profile
+                </button>
+            </article>
+
+            <article class="employee-card"
+                data-name="Meera Nair"
+                data-department="Marketing"
+                data-role="Marketing Associate"
+                data-email="meera@example.com"
+                data-about="Meera helps create marketing campaigns and improve audience engagement.">
+
+                <div class="employee-avatar">MN</div>
+                <h3>Meera Nair</h3>
+                <p>Marketing Associate</p>
+                <span class="employee-department">Marketing</span>
+                <button type="button" class="btn employee-details">
+                    View Profile
+                </button>
+            </article>
+
+        </div>
+
+        <p id="employeeEmpty" hidden>
+            No employees found. Try another search.
+        </p>
+    </section>
+</main>
+
+<!-- Employee profile popup -->
+<div id="employeeModal" hidden
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="employeeModalTitle">
+
+    <div class="modal-content">
+        <button type="button"
+                id="closeEmployeeModal"
+                aria-label="Close profile"
+                title="Close profile">
+            ✕
+        </button>
+
+        <h2 id="employeeModalTitle">Employee Profile</h2>
+        <div id="employeeModalBody"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> Nova Organization. All rights reserved.</p>
+    <p><a href="index.html">Back to Home</a></p>
+</footer>
+
+<script src="script.js"></script>
+<script src="employees.js"></script>
+
+</body>
+</html>

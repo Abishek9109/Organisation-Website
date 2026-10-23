@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore career opportunities at Nova Organization.">
+    <title>Careers | Nova Organization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Nova Organization</h2>
+
+        <button id="themeToggle" class="theme-toggle"
+                type="button" aria-label="Switch to dark mode"
+                aria-pressed="false">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+            <span id="themeLabel">Dark mode</span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="news.html">Announcements</a></li>
+            <li><a href="careers.html" aria-current="page">Careers</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="careers-hero">
+        <h1>Build Your Career With Us</h1>
+        <p>Discover opportunities, develop your skills, and grow with Nova Organization.</p>
+        <a href="#jobListings" class="btn">Explore Openings</a>
+    </section>
+
+    <section class="section" id="jobListings">
+        <h2>Current Opportunities</h2>
+        <p>Find a role that matches your interests and skills.</p>
+
+        <div class="career-filters">
+            <input type="search" id="jobSearch"
+                   placeholder="Search job titles..."
+                   aria-label="Search job titles">
+
+            <select id="jobDepartment" aria-label="Filter by department">
+                <option value="all">All Departments</option>
+                <option value="Technology">Technology</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+        </div>
+
+        <div class="job-container" id="jobContainer">
+
+            
+<article class="job-card"
+         data-title="HR Executive"
+         data-department="Human Resources">
+
+    <span class="job-tag">Full-time</span>
+    <h3>HR Executive</h3>
+    <p><strong>Department:</strong> Human Resources</p>
+    <p>Support recruitment, onboarding, and employee engagement.</p>
+
+    <div class="job-actions">
+        <button type="button" class="btn job-details">View Details</button>
+        <button type="button" class="btn apply-job">Apply Now</button>
+    </div>
+
+</article>
+
+
+            <article class="job-card"
+                     data-title="Data Analyst"
+                     data-department="Technology">
+                <span class="job-tag">Full-time</span>
+                <h3>Data Analyst</h3>
+                <p><strong>Department:</strong> Technology</p>
+                <p>Analyze data and create reports to support decisions.</p>
+                <button type="button" class="btn job-details">View Details</button>
+                <button type="button" class="btn apply-job">Apply Now</button>
+            </article>
+
+            <article class="job-card"
+                     data-title="HR Executive"
+                     data-department="Human Resources">
+                <span class="job-tag">Full-time</span>
+                <h3>HR Executive</h3>
+                <p><strong>Department:</strong> Human Resources</p>
+                <p>Support recruitment, onboarding, and employee engagement.</p>
+                <button type="button" class="btn job-details">View Details</button>
+                <button type="button" class="btn apply-job">Apply Now</button>
+            </article>
+
+            <article class="job-card"
+                     data-title="Financial Assistant"
+                     data-department="Finance">
+                <span class="job-tag">Full-time</span>
+                <h3>Financial Assistant</h3>
+                <p><strong>Department:</strong> Finance</p>
+                <p>Assist with budgeting, reports, and financial records.</p>
+                <button type="button" class="btn job-details">View Details</button>
+                <button type="button" class="btn apply-job">Apply Now</button>
+            </article>
+
+            <article class="job-card"
+                     data-title="Marketing Associate"
+                     data-department="Marketing">
+                <span class="job-tag">Internship</span>
+                <h3>Marketing Associate</h3>
+                <p><strong>Department:</strong> Marketing</p>
+                <p>Help plan campaigns and create engaging content.</p>
+                <button type="button" class="btn job-details">View Details</button>
+                <button type="button" class="btn apply-job">Apply Now</button>
+            </article>
+
+        </div>
+
+        <p id="noJobsMessage" hidden>No matching jobs found. Try another search.</p>
+    </section>
+</main>
+
+<!-- Job details and application modal -->
+<div id="careerModal" class="modal" hidden
+     role="dialog" aria-modal="true"
+     aria-labelledby="careerModalTitle">
+    <div class="modal-content">
+        <button type="button" id="closeCareerModal"
+                class="close-modal" aria-label="Close dialog">✕</button>
+        <h2 id="careerModalTitle"></h2>
+        <div id="careerModalBody"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> Nova Organization. All rights reserved.</p>
+    <p><a href="index.html">Back to Home</a></p>
+</footer>
+
+<script src="script.js"></script>
+<script src="careers.js"></script>
+</body>
+</html>
